@@ -2,9 +2,16 @@
 
 <% @lists.each do |list| %>
 
-  <P>タイトル</p>
-  <span>
-  <%= link_to list.title, list_path(list.id) %>
-  </sapn>
+    <P>タイトル</p>
+    <span>
+    <%= link_to list.title, list_path(list.id) %>
+    </sapn>
 
-  <% end %>
+    <p>画像</p>
+    <% if list.image.attached? %>
+      <%= image_tag list.image, size: "200x200" %>
+    <% else%>
+      <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
+
+ <% end%>
